@@ -4,6 +4,7 @@ const jest = require('jest');
 const htmlMe = require('./htmlGenerator.js');
 const { listenerCount } = require('process');
 
+
 const manager = [
     {
         name: 'manager_name',
@@ -22,6 +23,8 @@ const manager = [
         message: "Enter your team manager's office number."
     },
 ];
+
+//adding validation to ensure that user input provided is in the proper expected format.
 
 const addPrompt = {
     type: 'list',
@@ -69,26 +72,15 @@ const intern = [
 ]
 
 
-Employee
-Manager
-Engineer
-Intern
 
 
 
-getName();
-getId();
-getEmail();
-getRole();
-getGitHub();
-getSchool();
 
-name
-id
-email
-officeNumber
-github
-school 
+
+
+
+
+
 
 
 inquirer.prompt()
