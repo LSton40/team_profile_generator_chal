@@ -3,6 +3,7 @@ const fs = require('fs');
 const jest = require('jest');
 const htmlMe = require('./htmlGenerator.js');
 const { listenerCount } = require('process');
+const Manager = require('./lib/Manager.js');
 
 
 const manager = [
@@ -67,7 +68,10 @@ const manager = [
 //     choices: ['Add an engineer', 'Add an intern', 'Finish building my team'],
 // }
 
+function addEmployeePrompt(mgr) {
+    const mgmt = new Manager(mgr.getRole(), `...`)
 
+}
 
 
 //GitHub username Regex courtesy of https://github.com/shinnn/github-username-regex
@@ -176,7 +180,10 @@ async addIntern() {
 
 
 
-
+function initPrompt() {
+    const mgmt = new Manager((mgr) => {mgr.getRole()})
+    inquirer.prompt(manager)
+}
 
 
 
