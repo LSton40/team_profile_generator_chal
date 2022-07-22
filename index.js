@@ -3,6 +3,7 @@ const fs = require('fs');
 const jest = require('jest');
 const htmlMe = require('./htmlGenerator.js');
 const { listenerCount } = require('process');
+const Manager = require('./lib/Manager.js');
 
 
 const manager = [
@@ -50,12 +51,12 @@ const manager = [
             return true
         }
     },
-    {
-        type: 'list',
-        name: 'add_teammember',
-        message: 'Would you like to add a team member?',
-        choices: ['Add an engineer', 'Add an intern', 'Finish building my team']
-    }
+    // {
+    //     type: 'list',
+    //     name: 'add_teammember',
+    //     message: 'Would you like to add a team member?',
+    //     choices: ['Add an engineer', 'Add an intern', 'Finish building my team']
+    // }
 ];
 
 //adding validation to ensure that user input provided is in the proper expected format.
@@ -74,7 +75,7 @@ const manager = [
 const engineer = [
     {
         name: 'engineer_name',
-        message: "Enter your engineer's name."
+        message: "Enter your engineer's name.",
         validate(input) {
             if (!input) {
                 return "Please tell me your engineer's name!"
@@ -117,10 +118,10 @@ const engineer = [
     }
 ];
 
-async addEngineer() {
-    const x = await inquirer.prompt(engineer);
+// async addEngineer() {
+//     const x = await inquirer.prompt(engineer)
 
-};
+// };
 
 // const intern = [
 //     {
@@ -167,9 +168,9 @@ async addEngineer() {
 //     }
 // ]
 
-async addIntern() {
-    const y = await inquirer.prompt(intern);
-};
+// async addIntern() {
+//     const y = await inquirer.prompt(intern);
+// };
 
 
 
@@ -178,29 +179,47 @@ async addIntern() {
 
 
 
+function initPrompt() {
 
-
-
+    
 inquirer.prompt(manager)
-    .then((data) => {
-        console.log(data);
-        switch(data.add_teammember) {
-            case 'Add an engineer':
-                addEngineer();
-                break;
-            case 'Add an intern':
-                addIntern();
-                break;
-            case 'Finish building my team';
-                finishTeam();
 
-        }
+
+    .then((data) => {
+
+        console.log(data);
+        const mgmt = new Manager(data.manager_name, data.manager_id, data.manager_email, data.manager_office);
+        
+        console.log(mgmt);
+
+        return mgmt;
+        
+        // switch(data.add_teammember) {
+        //     case 'Add an engineer':
+        //         addEngineer();
+        //         break;
+        //     case 'Add an intern':
+        //         addIntern();
+        //         break;
+        //     case 'Finish building my team';
+        //         finishTeam();
+        // }
 
     })
-    // .then(())
+    .then((input) => {
+        return htmlMe(input);
+    })
+    .then((data) => {
+        // function writeHtmlFile(fileName, data) {
+            fs.writeFile('index.html', data, (error) => {
+            error ? console.log(error) : console.log('HTML file generated!');
+        });
+// }
+    })
 
+}
 
-
+initPrompt();
 
 
 // function writeHtmlFile(fileName, data) {

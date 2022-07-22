@@ -1,5 +1,4 @@
-function htmlGenerator(input) {
-    return `
+
 
     <!DOCTYPE html>
     <html lang="en">
@@ -22,12 +21,12 @@ function htmlGenerator(input) {
             <section class="manager empl_card">
                 <div class="mgt_heading">
                     <h2 class="job">Manager</h2>
-                    <h3 class="name">${input.name}</h3>
+                    <h3 class="name">Bob</h3>
                 </div>
                 <div class="employee_info">
-                    <p class="employee_id">Employee ID: ${input.id}</p>
-                    <p class="office_num">Office Number: ${input.officeNumber}</p>
-                    <p>Email: <a href="mailto:email@email.com" target="_blank" class="email">${input.email}</a></p>
+                    <p class="employee_id">Employee ID: 3</p>
+                    <p class="office_num">Office Number: 6</p>
+                    <p>Email: <a href="mailto:email@email.com" target="_blank" class="email">b@g.com</a></p>
                 </div>
             </section>
     
@@ -45,10 +44,4 @@ function htmlGenerator(input) {
     </html>
     
     
-    `
-
-}
-
-
-
-module.exports = htmlGenerator;
+    
