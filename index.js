@@ -1,9 +1,9 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const jest = require('jest');
-const htmlMe = require('./htmlGenerator.js');
 const { listenerCount } = require('process');
 const Manager = require('./lib/Manager.js');
+const htmlGenerator = require('./htmlGenerator.js');
 
 
 const manager = [
@@ -61,13 +61,29 @@ const manager = [
 
 //adding validation to ensure that user input provided is in the proper expected format.
 
-// const addPrompt = {
-//     type: 'list',
-//     name: 'add_teammember',
-//     message: 'Would you like to add a team member?',
-//     choices: ['Add an engineer', 'Add an intern', 'Finish building my team'],
-// }
+const addPrompt = {
+    type: 'list',
+    name: 'add_teammember',
+    message: 'Would you like to add a team member?',
+    choices: ['Add an engineer', 'Add an intern', 'Finish building my team'],
+}
 
+function doYouWantMore() {
+
+    inquirer.prompt(addPrompt)
+    .then((data) => {
+        switch(data.add_teammember) {
+            case 'Add an engineer':
+                addEngineer();
+                break;
+            case 'Add an intern':
+                addIntern();
+                break;
+            case 'Finish building my team';
+                finishTeam();
+        }
+    })
+}
 
 
 
@@ -187,27 +203,21 @@ inquirer.prompt(manager)
 
     .then((data) => {
 
-        console.log(data);
         const mgmt = new Manager(data.manager_name, data.manager_id, data.manager_email, data.manager_office);
-        
-        console.log(mgmt);
 
-        return mgmt;
+        htmlGenerator(mgmt)
+
+        // return mgmt;
         
-        // switch(data.add_teammember) {
-        //     case 'Add an engineer':
-        //         addEngineer();
-        //         break;
-        //     case 'Add an intern':
-        //         addIntern();
-        //         break;
-        //     case 'Finish building my team';
-        //         finishTeam();
-        // }
+       
 
     })
+
+
+
+
     .then((input) => {
-        return htmlMe(input);
+        return htmlGenerator(input);
     })
     .then((data) => {
         // function writeHtmlFile(fileName, data) {

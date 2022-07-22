@@ -1,3 +1,65 @@
+function managerHtml(manager) {
+    return `
+    <section class="manager empl_card">
+                <div class="mgt_heading">
+                    <h2 class="job">Manager</h2>
+                    <h3 class="name">${manager.name}</h3>
+                </div>
+                <div class="employee_info">
+                    <p class="employee_id">Employee ID: ${manager.id}</p>
+                    <p class="office_num">Office Number: ${manager.officeNumber}</p>
+                    <p>Email: <a href="mailto:email@email.com" target="_blank" class="email">${manager.email}</a></p>
+                </div>
+            </section>
+    
+    `
+}
+
+function engineerHtml(engineer) {
+
+    for (let i = 0; i < x.length; i++) {
+        
+    return `
+    <section class="engineer empl_card">
+    <div class="eng_heading">
+        <h2 class="job">Engineer</h2>
+        <h3 class="name">Lucille</h3>
+    </div>
+    <div class="employee_info">
+        <p class="employee_id">Employee ID: 10110</p>
+        <p>GitHub: <a href="https://github.com/${Username}" target="_blank" class="github">GiddyLu</a></p>
+        <p>Email: <a href="mailto:email@email.com" target="_blank" class="email">engineerLucy@magicplace.net</a></p>
+    </div>
+</section>
+    
+    `
+}
+}
+
+function internHtml(intern) {
+
+    for (let i = 0; i < x.length; i++) {
+
+    return `
+    <section class="intern empl_card">
+            <div class="int_heading">
+                <h2 class="job">Intern</h2>
+                <h3 class="name">Timmy</h3>
+            </div>
+            <div class="employee_info">
+                <p class="employee_id">Employee ID: 19055</p>
+                <p class="school">School: University of Minnesota</p>
+                <p>Email: <a href="mailto:email@email.com" target="_blank" class="email">interntimmy@magicplace.net</a></p>
+            </div>
+        </section>
+    
+    `
+    }
+}
+
+
+
+
 function htmlGenerator(input) {
     return `
 
