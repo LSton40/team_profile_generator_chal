@@ -1,17 +1,11 @@
-const x = require('')
+const Manager = require('../lib/Manager');
 
-const y = new x();
-
+const mng = new Manager();
 
 describe('Manager Status', () => {
 
-    it('should return ', () => {
+    it('should return the Employee role "Manager" for a member of the Manager class', () => {
         
-        expect().toBe();
-    })
-
-    it('should return ', () => {
-
-        expect().toBe();
+        expect(mng.getRole()).toBe('Manager');
     })
 });
