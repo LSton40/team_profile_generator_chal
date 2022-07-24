@@ -11,6 +11,11 @@ Validation is used for the user input to the question prompts. The user must ent
 
 A pre-made CSS stylesheet accompanies this project and is automatically linked to the generated `index.html` file. Team member information is presented on separate section cards. The Engineer GitHub username that is listed is active as a link to the Engineer's GitHub profile page. All emails open the user's default email in a separate tab on click.
 
+Link to Walkthrough video: [Team Profile Generator Walkthrough](https://drive.google.com/file/d/1vAJ_M9spUXgeE1t6B2Nm_ykzXScm0p0S/view)
+
+[![Sample Generated HTML screenshot](https://user-images.githubusercontent.com/103286445/180665665-43454989-087c-4f14-b2af-fb9c3b236143.png)](https://user-images.githubusercontent.com/103286445/180665665-43454989-087c-4f14-b2af-fb9c3b236143.png)
+
+
 ## Table of Contents  
 
 - [Installation](#installation)  
